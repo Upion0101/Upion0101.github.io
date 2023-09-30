@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Bob
-permalink: /about/
+permalink: /_pages/about/
 ---
 
 Hey there, I'm Bob, but I've gone by a few names in my time. You see, I'm quite the mysterious kitty. My original name was "Miming," but somewhere along the way, I decided "Bob" suited me better.
@@ -21,3 +21,4 @@ Oh, and let's talk about my favorite drinking spot—the human cups. I like to t
 But here's the thing—don't be late getting home to me. I might have a bit of an attitude when you arrive home late. I just like to keep my humans on their toes, you know?
 
 So there you have it, a glimpse into the life of yours truly, Bob the Majestic Feline. Thanks for visiting my page, and feel free to follow along with my adventures! 😸🐾
+
