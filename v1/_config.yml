@@ -1,6 +1,0 @@
-title: Bob the Cat
-description: A website dedicated to the adventures of Bob, the cutest cat.
-baseurl: ""
-url: "https://upion0101.github.io"
-theme: minima
-includes_dir: _pages
