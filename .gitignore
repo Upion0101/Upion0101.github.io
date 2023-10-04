@@ -3,3 +3,9 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+assets/photos/*
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+.angular   

@@ -1,0 +1,44 @@
+/** `main` element */
+main {
+    display: block; /* Default value of `display` for `main` element is 'inline' in IE 11. */
+}
+
+/** Wrapper */
+.wrapper {
+    max-width: calc(800px - (30px * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        max-width: calc(800px - 30px);
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+/** Clearfix */
+.wrapper:after, .footer-col-wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/** Icons */
+.svg-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    fill: #828282;
+    padding-right: 5px;
+    vertical-align: text-top;
+}
+
+.social-media-list li + li {
+    padding-top: 5px;
+}
+
+// ... [The rest of your app-specific styles go here]

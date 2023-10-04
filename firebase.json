@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "my-angular-website",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

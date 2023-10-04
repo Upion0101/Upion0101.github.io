@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "boblovers-2dbfa": {
+      "hosting": {
+        "my-angular-website": [
+          "boblovers-2dbfa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "boblovers-2dbfa"
+  }
+}
