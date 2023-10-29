@@ -1,0 +1,1 @@
+export const IMAGES_LIST = ["IMG_4482.png","IMG_4509.JPG","IMG_4553.png","IMG_4558.png","IMG_4575.png","IMG_4669.png","IMG_4675.png","IMG_4676.png","IMG_4688.png"];
