@@ -1,145 +1,67 @@
-/** Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
-}
+// Assuming _variables.scss is imported before this
+// Variables should be defined there, like:
+// $color-primary, $color-secondary, $color-accent, $color-background, $color-border, $font-family-base
+$color-primary: #FFC7DF;
+$color-secondary: #e47c7c;
+$color-accent: #07a4ff;
+$color-background: #000;
+$color-border: #ff0000;
+$font-family-base: 'Open+Sans', sans-serif;
 
-/** Links */
-a {
-  color: #2a7ae2;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #1756a9;
-}
-
-a:hover {
-  color: #111;
-  text-decoration: underline;
-}
-
-.social-media-list a:hover {
-  text-decoration: none;
-}
-
-.social-media-list a:hover .username {
-  text-decoration: underline;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  fill: #000;
-}
-
-/** Wrapper */
-.wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
-  max-width: calc(800px - (30px * 2));
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 30px;
-  padding-left: 30px;
-}
-
-@media screen and (max-width: 800px) {
-  .wrapper {
-    max-width: -webkit-calc(800px - (30px));
-    max-width: calc(800px - (30px));
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-/** Clearfix */
-.wrapper:after,
-.footer-col-wrapper:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/** Icons */
-.svg-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  fill: #828282;
-  padding-right: 5px;
-  vertical-align: text-top;
-}
-
-.social-media-list li+li {
-  padding-top: 5px;
-}
-
-/** Site footer */
+// Footer Styles
 .site-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
-}
+  background-color: $color-primary;
+  color: $color-background;
+  padding: 2rem 0;
+  font-family: $font-family-base;
 
-.footer-heading {
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.footer-col-wrapper {
-  font-size: 15px;
-  color: #828282;
-  margin-left: -15px;
-}
-
-.footer-col {
-  float: left;
-  margin-bottom: 15px;
-  padding-left: 15px;
-}
-
-.footer-col-1 {
-  width: -webkit-calc(35% - (30px / 2));
-  width: calc(35% - (30px / 2));
-}
-
-.footer-col-2 {
-  width: -webkit-calc(20% - (30px / 2));
-  width: calc(20% - (30px / 2));
-}
-
-.footer-col-3 {
-  width: -webkit-calc(45% - (30px / 2));
-  width: calc(45% - (30px / 2));
-}
-
-@media screen and (max-width: 800px) {
-
-  .footer-col-1,
-  .footer-col-2 {
-    width: -webkit-calc(50% - (30px / 2));
-    width: calc(50% - (30px / 2));
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
-  .footer-col-3 {
-    width: -webkit-calc(100% - (30px / 2));
-    width: calc(100% - (30px / 2));
+  .footer-content {
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-link {
+      color: $color-accent;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 1rem;
+
+    .footer-nav-item {
+      color: $color-background;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 600px) {
-  .footer-col {
-    float: none;
-    width: -webkit-calc(100% - (30px / 2));
-    width: calc(100% - (30px / 2));
+// Responsive adjustments for smaller screens
+@media (max-width: 600px) {
+  .site-footer .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-footer .footer-nav {
+    justify-content: center;
+    padding-top: 1rem;
   }
 }

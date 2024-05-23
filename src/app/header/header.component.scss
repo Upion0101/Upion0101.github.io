@@ -1,24 +1,153 @@
-/** Wrapper */
-.wrapper { max-width: -webkit-calc(800px - (30px * 2)); max-width: calc(800px - (30px * 2)); margin-right: auto; margin-left: auto; padding-right: 30px; padding-left: 30px; }
-@media screen and (max-width: 800px) { .wrapper { max-width: -webkit-calc(800px - (30px)); max-width: calc(800px - (30px)); padding-right: 15px; padding-left: 15px; } }
+/** Site Header Styles */
 
-// Base styles for the site header
-.site-header { border-top: 5px solid #424242; border-bottom: 1px solid #e8e8e8; min-height: 55.95px; position: relative; }
-.site-title { font-size: 26px; font-weight: 300; line-height: 54px; letter-spacing: -1px; margin-bottom: 0; float: left; }
-.site-title, .site-title:visited { color: #424242; }
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
-// Site navigation
+// Variables for consistent styling
+$color-primary: #5C6BC0; // Change as per your branding color
+$color-secondary: #424242;
+$color-accent: #FFC107; // Color for hover states and active links
+$color-background: #FFF;
+$color-border: #DDDDDD;
+$font-family-base: 'Open+Sans', sans-serif;
 
-.site-nav { float: right; line-height: 54px; }
-.site-nav .nav-trigger { display: none; }
-.site-nav .menu-icon { display: none; }
-.site-nav .page-link { color: #111; line-height: 1.5; }
-.site-nav .page-link:not(:last-child) { margin-right: 20px; }
-@media screen and (max-width: 600px) { .site-nav { position: absolute; top: 9px; right: 15px; background-color: #fdfdfd; border: 1px solid #e8e8e8; border-radius: 5px; text-align: right; }
-  .site-nav label[for="nav-trigger"] { display: block; float: right; width: 36px; height: 36px; z-index: 2; cursor: pointer; }
-  .site-nav .menu-icon { display: block; float: right; width: 36px; height: 26px; line-height: 0; padding-top: 10px; text-align: center; }
-  .site-nav .menu-icon > svg { fill: #424242; }
-  .site-nav input ~ .trigger { clear: both; display: none; }
-  .site-nav input:checked ~ .trigger { display: block; padding-bottom: 5px; }
-  .site-nav .page-link { display: block; padding: 5px 10px; margin-left: 20px; }
-  .site-nav .page-link:not(:last-child) { margin-right: 0; } }
+// Base wrapper style
+.wrapper {
+  max-width: calc(100% - 60px);
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+// Responsive wrapper adjustment
+@media screen and (max-width: 800px) {
+  .wrapper {
+    max-width: calc(100% - 30px);
+    padding: 0 15px;
+  }
+}
+
+// Site header base style
+.site-header {
+  background-color: $color-background;
+  border-top: 5px solid $color-primary;
+  border-bottom: 1px solid $color-border;
+  min-height: 60px;
+  position: relative;
+  font-family: $font-family-base;
+}
+
+// Site title styling
+.site-title {
+  font-size: 1.625rem; // 26px
+  font-weight: 700;
+  line-height: 60px; // Align with the height of the header for vertical centering
+  margin: 0;
+  color: $color-secondary;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $color-accent;
+    text-decoration: none;
+  }
+}
+
+// Navigation styles
+.site-nav {
+  float: right;
+  line-height: 60px; // Align with the height of the header
+
+  // Hide checkbox visually but not from screen readers
+  .nav-trigger {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  // Hamburger icon styling
+  .menu-icon {
+    display: none; // Only visible on mobile
+    cursor: pointer;
+    
+    > svg {
+      fill: $color-secondary;
+    }
+  }
+
+  // Menu item link styling
+  .menu-item, .page-link {
+    color: $color-secondary;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 1rem; // Space out navigation links
+    transition: color 0.3s ease;
+
+    &:hover, &:focus {
+      color: $color-accent;
+    }
+  }
+
+  // Active link styling
+  .menu-item-active, .page-link-active {
+    color: $color-primary;
+    font-weight: bold;
+  }
+}
+
+// Mobile navigation styles
+@media screen and (max-width: 600px) {
+  .site-nav {
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    background-color: rgba($color-background, 0.95);
+    border-radius: 4px;
+    text-align: right;
+    z-index: 1000; // Ensure it's above other content
+
+    // Hamburger icon visible on mobile
+    .menu-icon {
+      display: block;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      float: none;
+      margin: 12px; // Spacing from the corners of the screen
+    }
+
+    .menu-icon > svg {
+      fill: $color-primary;
+    }
+
+    // Menu toggle animation
+    input:checked ~ .trigger {
+      padding-bottom: 15px;
+    }
+
+    // Mobile navigation menu style
+    .trigger {
+      clear: both;
+      display: none;
+      background-color: $color-background;
+      border-top: 1px solid $color-border;
+      padding-top: 15px;
+    }
+
+    input:checked ~ .trigger {
+      display: block;
+    }
+
+    // Mobile menu item link styling
+    .page-link {
+      display: block;
+      padding: 10px;
+      border-bottom: 1px solid $color-border;
+
+      &:hover {
+        background-color: $color-primary;
+        color: $color-background;
+      }
+    }
+  }
+}

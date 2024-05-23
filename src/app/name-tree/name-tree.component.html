@@ -1,0 +1,20 @@
+<div class="name-tree">
+    <h1>{{ data.name }}</h1>
+    <ul>
+        <li *ngFor="let category of data.children">
+            <ng-container *ngIf="isNameCategory(category); else plainText">
+                <h2 (click)="toggleCategory(category)" [class.is-open]="category.isOpen">{{ category.name }}</h2>
+                <ul *ngIf="category.isOpen">
+                    <li *ngFor="let child of category.children">
+                        <ng-container *ngIf="isNameCategory(child)">
+                            <!-- Recursive template inclusion or some structure to represent nested categories -->
+                            <!-- You need to replace this with your actual recursive structure or display logic -->
+                        </ng-container>
+                        <span *ngIf="!isNameCategory(child)">{{ child }}</span>
+                    </li>
+                </ul>
+            </ng-container>
+            <ng-template #plainText>{{ category }}</ng-template>
+        </li>
+    </ul>
+</div>

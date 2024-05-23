@@ -1,0 +1,46 @@
+/* gallery.component.css */
+
+.image-gallery-container {
+    max-width: 800px; /* Set the maximum width to control the size of the gallery */
+    margin: 0 auto; /* Center the gallery horizontally */
+  }
+  
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Set the fixed width for each image item */
+    height: 200px; /* Set the fixed height for each image item */
+  }
+  
+  .image-item img {
+    width: 100%; /* Ensure the image covers the entire item */
+    height: 100%;
+    object-fit: cover; /* Maintain the aspect ratio and cover the item */
+    border-radius: 10px;
+  }
+  
+  .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  
+.image-item:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }

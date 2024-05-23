@@ -1,14 +1,8 @@
-<main class="page-content" aria-label="Content">
-    <div class="wrapper">
-        <h1>My Gallery</h1>
-        <p>This is a gallery test from Firebase Storage.</p>
-
-        <div class="image-gallery">
-            <!-- Display the images if the URLs are available -->
-            <div class="image-item" *ngFor="let imageUrl of imageUrls">
-                <img [src]="imageUrls" alt="Gallery Image from Firebase">
-                <div class="image-description">{{ imageUrl }}</div>
-            </div>
-        </div>
-    </div>
-</main>
+<div class="image-gallery">
+  <div *ngFor="let image of imagesList; let i = index" class="image-item"
+    (click)="open(i)" (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = -1"
+    [ngClass]="{'hovered': i === hoveredIndex}">
+    <img [src]="'assets/photos/' + image.filename" alt="Image">
+    <div class="image-caption">{{ image.caption }}</div>
+  </div>
+</div>

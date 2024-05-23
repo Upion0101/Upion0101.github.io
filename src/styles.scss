@@ -1,4 +1,17 @@
+/** `main` element */
+main {
+    display: block;
+    /* Default value of `display` for `main` element is 'inline' in IE 11. */
+}
 
+/** Wrapper */
+.wrapper {
+    max-width: calc(800px - (30px * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+}
 
 /** Reset some basic elements */
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { 

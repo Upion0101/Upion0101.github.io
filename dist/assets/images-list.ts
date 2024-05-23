@@ -1,1 +1,50 @@
-export const IMAGES_LIST = ["IMG_4170.JPG","IMG_4178.png","IMG_4179.JPG","IMG_4180.JPG","IMG_4181.JPG","IMG_4182.JPG","IMG_4183.JPG","IMG_4184.JPG","IMG_4185.JPG","IMG_4186.JPG","IMG_4187.JPG","IMG_4188.JPG","IMG_4253.png","IMG_4254.png","IMG_4255.png","IMG_4256.png","IMG_4257.png","IMG_4258.JPG","IMG_4259.png","IMG_4260.png","IMG_4261.png","IMG_4262.png","IMG_4263.png","IMG_4264.png","IMG_4268.png","IMG_4269.png","IMG_4271.png","IMG_4272.png","IMG_4273.png","IMG_4274.png","IMG_4275.png","IMG_4278.png","IMG_4279.png","IMG_4280.png","IMG_4282.png","IMG_4283.png","IMG_4284.png","IMG_4285.png","IMG_4292.png","IMG_4293.png","IMG_4294.png","IMG_4295.png","IMG_4296.png","IMG_4297.png","IMG_4298.png","IMG_4299.png","IMG_4300.png","IMG_4301.png","IMG_4302.png","IMG_4303.png","IMG_4304.png","IMG_4305.png","IMG_4306.png","IMG_4314.png","IMG_4315.png","IMG_4316.png","IMG_4322.png","IMG_4323.png","IMG_4324.png","IMG_4327.png","IMG_4328.png","IMG_4329.png","IMG_4330.png","IMG_4331.png","IMG_4332.png","IMG_4333.png","IMG_4334.png","IMG_4335.png","IMG_4336.png","IMG_4340.png","IMG_4341.png","IMG_4342.png","IMG_4343.png","IMG_4344.png","IMG_4345.png","IMG_4346.png","IMG_4347.png","IMG_4348.png","IMG_4349.png","IMG_4350.png","IMG_4351.png","IMG_4353.png","IMG_4354.png","IMG_4355.png","IMG_4356.png","IMG_4357.png","IMG_4358.png","IMG_4359.png","IMG_4360.png","IMG_4361.png","IMG_4362.png","IMG_4363.png","IMG_4364.png","IMG_4365.png","IMG_4366.png","IMG_4367.png","IMG_4368.png","IMG_4369.png","IMG_4370.png","IMG_4371.png","IMG_4372.png","IMG_4373.png","IMG_4374.png","IMG_4375.png","IMG_4376.png","IMG_4377.png","IMG_4380.png","IMG_4381.png","IMG_4382.png","IMG_4383.png","IMG_4384.png","IMG_4385.png","IMG_4386.png","IMG_4387.png","IMG_4388.png","IMG_4389.png","IMG_4390.png","IMG_4392.png","IMG_4393.png","IMG_4394.png","IMG_4395.png","IMG_4396.png","IMG_4400.png","IMG_4401.png","IMG_4402.png","IMG_4403.png","IMG_4404.png","IMG_4405.png","IMG_4407.png","IMG_4408.png","IMG_4410.png","IMG_4411.png","IMG_4412.png","IMG_4413.png","IMG_4414.png","IMG_4415.png","IMG_4416.png","IMG_4417.png","IMG_4418.png","IMG_4419.png","IMG_4428.png","IMG_4429.png","IMG_4430.png","IMG_4432.png","IMG_4433.png","IMG_4444.png","IMG_4445.png","IMG_4446.png","IMG_4447.png","IMG_4448.png","IMG_4449.png","IMG_4450.png","IMG_4451.png","IMG_4452.png","IMG_4453.png","IMG_4454.png","IMG_4455.png","IMG_4456.png","IMG_4457.png","IMG_4458.png","IMG_4459.png","IMG_4460.png","IMG_4461.png","IMG_4462.png","IMG_4464.png","IMG_4465.png","IMG_4467.png","IMG_4474.png","IMG_4475.png","IMG_4476.png","IMG_4477.png","IMG_4478.png","IMG_4479.png","IMG_4480.png","IMG_4481.png","IMG_4482.png","IMG_4483.png","IMG_4484.png","IMG_4485.png","IMG_4486.png","IMG_4487.png","IMG_4490.png","IMG_4491.png","IMG_4492.png","IMG_4493.png","IMG_4494.png","IMG_4495.png","IMG_4496.png","IMG_4497.png","IMG_4498.png","IMG_4499.png","IMG_4500.png","IMG_4503.png","IMG_4504.png","IMG_4505.png","IMG_4506.png","IMG_4507.png","IMG_4508.png","IMG_4509.JPG","IMG_4511.png","IMG_4512.png","IMG_4513.png","IMG_4514.png","IMG_4516.png","IMG_4517.png","IMG_4518.png","IMG_4519.png","IMG_4520.png","IMG_4521.png","IMG_4522.png","IMG_4523.png","IMG_4524.png","IMG_4525.png","IMG_4526.png","IMG_4528.png","IMG_4529.png","IMG_4530.png","IMG_4531.png","IMG_4532.png","IMG_4534.JPG","IMG_4535.JPG","IMG_4537.png","IMG_4538.png","IMG_4539.png","IMG_4540.png","IMG_4541.png","IMG_4543.png","IMG_4544.png","IMG_4545.png","IMG_4546.png","IMG_4547.png","IMG_4548.png","IMG_4549.png","IMG_4552.png","IMG_4553.png","IMG_4554.png","IMG_4555.png","IMG_4556.png","IMG_4557.png","IMG_4558.png","IMG_4559.png","IMG_4560.png","IMG_4561.png","IMG_4562.png","IMG_4563.png","IMG_4564.png","IMG_4565.png","IMG_4566.png","IMG_4567.png","IMG_4568.png","IMG_4569.png","IMG_4570.png","IMG_4571.png","IMG_4572.png","IMG_4574.png","IMG_4575.png","IMG_4576.png","IMG_4577.png","IMG_4578.png","IMG_4579.png","IMG_4580.png","IMG_4581.png","IMG_4582.png","IMG_4583.png","IMG_4584.png","IMG_4585.png","IMG_4586.png","IMG_4587.png","IMG_4588.png","IMG_4589.png","IMG_4593.png","IMG_4594.png","IMG_4595.png","IMG_4596.png","IMG_4597.png","IMG_4598.png","IMG_4599.png","IMG_4600.png","IMG_4601.png","IMG_4602.png","IMG_4603.png","IMG_4604.png","IMG_4605.png","IMG_4606.png","IMG_4607.png","IMG_4608.JPG","IMG_4609.png","IMG_4610.png","IMG_4611.png","IMG_4612.png","IMG_4613.png","IMG_4614.png","IMG_4615.png","IMG_4616.png","IMG_4617.png","IMG_4621.png","IMG_4622.png","IMG_4623.png","IMG_4624.png","IMG_4626.png","IMG_4627.png","IMG_4628.png","IMG_4629.png","IMG_4630.png","IMG_4631.png","IMG_4632.png","IMG_4633.png","IMG_4634.png","IMG_4635.png","IMG_4636.png","IMG_4637.png","IMG_4638.png","IMG_4639.png","IMG_4640.png","IMG_4641.png","IMG_4642.png","IMG_4643.png","IMG_4644.png","IMG_4645.png","IMG_4646.png","IMG_4647.png","IMG_4648.png","IMG_4649.png","IMG_4650.JPG","IMG_4651.JPG","IMG_4652.png","IMG_4653.png","IMG_4654.png","IMG_4655.png","IMG_4656.png","IMG_4657.png","IMG_4658.png","IMG_4659.png","IMG_4660.png","IMG_4661.png","IMG_4662.png","IMG_4663.png","IMG_4664.png","IMG_4665.png","IMG_4666.png","IMG_4667.png","IMG_4668.png","IMG_4669.png","IMG_4672.png","IMG_4673.png","IMG_4675.png","IMG_4676.png","IMG_4677.png","IMG_4678.png","IMG_4679.png","IMG_4680.png","IMG_4681.png","IMG_4682.png","IMG_4683.png","IMG_4684.png","IMG_4685.png","IMG_4686.png","IMG_4687.png","IMG_4688.png","IMG_4689.png","IMG_4690.png"];
+// images-list.ts
+
+export const IMAGES_LIST = [
+    {
+      filename: "IMG_4482.png",
+      caption: "Denzel Washington Bob",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4509.JPG",
+      caption: "Bob's Casual Adventure Day",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4553.png",
+      caption: "Grandma Bob",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4558.png",
+      caption: "Bob Takes a Sip From Mama's Water Cup",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4575.png",
+      caption: "Wow, She Can Yawn!",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4669.png",
+      caption: "Bob and the Cardboard Box Retreat",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4675.png",
+      caption: "Bob's Sunshine Spot by the Window",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4676.png",
+      caption: "Guess Which One is Bob",
+      isZoomed: false
+    },
+    {
+      filename: "IMG_4688.png",
+      caption: "Bob's Unconventional Nap Position",
+      isZoomed: false
+    }
+  ];
+  

@@ -1,0 +1,57 @@
+.name-tree {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .name-tree h1 {
+    color: #333;
+    text-align: center;
+  }
+
+  .name-tree ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .name-tree li {
+    margin-bottom: 10px;
+  }
+
+  .name-tree h2 {
+    cursor: pointer;
+    color: #555;
+    margin: 10px 0;
+  }
+
+  .name-tree h2:hover {
+    color: #000;
+  }
+
+  .name-tree span {
+    display: block;
+    padding-left: 20px;
+    color: #666;
+  }
+
+  /* Indicate that category can be toggled */
+  .name-tree h2::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Rotate the symbol when category is open */
+  .name-tree ul li ul {
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+
+  .name-tree .is-open::before {
+    transform: rotate(90deg);
+  }

@@ -1,0 +1,62 @@
+/* Base page styles */
+.page-content {
+  background-color: #f9eaf3; /* Light pink background for the page */
+  color: #333; /* Dark grey text for better readability */
+  font-family: 'Arial', sans-serif; /* Ensures text is easy to read */
+  padding: 20px;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto; /* Centers the content */
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 5px solid #ff69b4; /* Pink border on the left for a pop of color */
+}
+
+/* Header styles */
+#meet-bob- {
+  color: #ff69b4; /* Pink color for the heading */
+  text-align: center;
+  font-size: 2.5rem; /* Larger font size for the main heading */
+}
+
+/* Paragraph styles */
+.welcome-text, .info-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.page-link {
+  color: #ff69b4; /* Pink links */
+  text-decoration: none; /* Removes underline from links */
+  &:hover {
+    text-decoration: underline; /* Underline on hover for better interaction */
+  }
+}
+
+.intro-image {
+  width: 100%; /* Makes image responsive */
+  height: auto; /* Keeps aspect ratio intact */
+  display: block;
+  margin: 10px auto; /* Centers the image */
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+.image-container {
+  text-align: center; /* Center-align the image container */
+  padding: 20px;
+  background-color: #fff0f5; /* Very light pink background for the image container */
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+    border-left: none;
+    border-top: 5px solid #ff69b4; /* Move the border to the top on smaller screens */
+  }
+}

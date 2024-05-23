@@ -1,0 +1,28 @@
+.page-not-found {
+    text-align: center;
+    padding: 40px;
+    color: #333;
+  
+    h1 {
+      color: #ff6347;
+    }
+  
+    p {
+      font-size: 1.2rem;
+    }
+  
+    .not-found-image {
+      max-width: 100%; // Makes sure the image is responsive
+      height: auto;
+      margin: 20px 0;
+    }
+  
+    a {
+      color: #007bff;
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }

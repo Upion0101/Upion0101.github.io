@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../services/storage.service';
-import { IMAGES_LIST } from '../../assets/images-list';
+import { IMAGES_LIST } from 'src/assets/images-list';
+import { Lightbox, IAlbum } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-gallery',
@@ -8,29 +8,25 @@ import { IMAGES_LIST } from '../../assets/images-list';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-  imageUrls: string[] = [];
-  private readonly basePath = 'photos/'; // replace with your actual path
-  private readonly maxImages = 8;
+  imagesList = IMAGES_LIST;
+  lightboxImages: IAlbum[] = [];
+  hoveredIndex = -1;
 
-  constructor(private storageService: StorageService) { }
+  constructor(private _lightbox: Lightbox) {}
 
-  ngOnInit(): void {
-    const shuffledImages = shuffleArray([...IMAGES_LIST]);
-    const randomImages = shuffledImages.slice(0, this.maxImages);
-    
-    randomImages.forEach(imageName => {
-      const imagePath = this.basePath + imageName;
-      this.storageService.getDownloadURL(imagePath).then(url => {
-        this.imageUrls.push(url);
-      });
-    });
+  ngOnInit() {
+    this.initializeLightbox();
   }
-}
 
-function shuffleArray(array: any[]): any[] {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+  initializeLightbox(): void {
+    this.lightboxImages = this.imagesList.map(image => ({
+      src: 'assets/photos/' + image.filename,
+      caption: image.caption,
+      thumb: 'assets/photos/' + image.filename // You can use the same image for thumb
+    }));
   }
-  return array;
+
+  open(index: number): void {
+    this._lightbox.open(this.lightboxImages, index);
+  }
 }

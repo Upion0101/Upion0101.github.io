@@ -1,0 +1,35 @@
+main.page-content {
+    .wrapper {
+      padding: 20px;
+      text-align: left;
+  
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+  
+      section {
+        margin-bottom: 20px;
+  
+        h2 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+  
+        ul {
+          list-style-type: disc;
+          padding-left: 20px;
+  
+          li {
+            font-size: 16px;
+            margin-bottom: 8px;
+  
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  
