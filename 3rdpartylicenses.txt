@@ -141,6 +141,8 @@ firebase/compat/database
 
 firebase/compat/firestore
 
+firebase/firestore
+
 idb
 ISC
 ISC License (ISC)
