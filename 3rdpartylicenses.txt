@@ -143,6 +143,9 @@ firebase/compat/firestore
 
 firebase/firestore
 
+gsap
+Standard 'no charge' license: https://gsap.com/standard-license. Club GSAP members get more: https://gsap.com/licensing/. Why GreenSock doesn't employ an MIT license: https://gsap.com/why-license/
+
 idb
 ISC
 ISC License (ISC)
