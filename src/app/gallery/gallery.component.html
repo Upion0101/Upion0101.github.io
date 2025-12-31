@@ -1,8 +1,36 @@
-<div class="image-gallery">
-  <div *ngFor="let image of imagesList; let i = index" class="image-item"
-    (click)="open(i)" (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = -1"
-    [ngClass]="{'hovered': i === hoveredIndex}">
-    <img [src]="'assets/photos/' + image.filename" alt="Image">
-    <div class="image-caption">{{ image.caption }}</div>
+<div class="image-gallery-container">
+  <div class="image-gallery" role="list">
+    <div
+      *ngFor="let image of imagesList; let i = index; trackBy: trackByFile"
+      class="image-item"
+      role="listitem"
+      (mouseenter)="hoveredIndex = i"
+      (mouseleave)="hoveredIndex = -1"
+      [class.hovered]="i === hoveredIndex"
+    >
+      <!-- data-filename is used for hash-open -->
+      <a
+        class="image-link"
+        [href]="photoUrl(image.filename)"
+        data-lightbox="gallery"
+        [attr.data-title]="image.caption"
+        [attr.aria-label]="'Open full view: ' + image.caption"
+        [attr.data-filename]="image.filename"
+        (click)="prefetchNeighbors(i)"
+      >
+        <img
+          class="image"
+          [src]="thumbUrl(image.filename)"
+          [alt]="image.caption || 'Gallery image'"
+          loading="lazy"
+          decoding="async"
+          [style.object-position]="image.focus || 'center'"
+        />
+      </a>
+
+      <div class="image-caption">
+        {{ image.caption }}
+      </div>
+    </div>
   </div>
 </div>

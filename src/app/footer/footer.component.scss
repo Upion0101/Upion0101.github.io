@@ -1,67 +1,99 @@
-// Assuming _variables.scss is imported before this
-// Variables should be defined there, like:
-// $color-primary, $color-secondary, $color-accent, $color-background, $color-border, $font-family-base
-$color-primary: #FFC7DF;
-$color-secondary: #e47c7c;
-$color-accent: #07a4ff;
-$color-background: #000;
-$color-border: #ff0000;
-$font-family-base: 'Open+Sans', sans-serif;
+// Import Font Awesome CSS in your index.html head section
+// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+@import 'src/styles.scss';
 
 // Footer Styles
 .site-footer {
-  background-color: $color-primary;
-  color: $color-background;
-  padding: 2rem 0;
+  background-color: $background-color;
+  color: $text-color;
+  padding: 3rem 0;
   font-family: $font-family-base;
+  border-top: 1px solid lighten($text-color, 60%);
 
   .wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    gap: 2rem;
   }
 
   .footer-content {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+
     h2 {
       margin: 0 0 1rem;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      color: $primary-color;
     }
 
-    .footer-link {
-      color: $color-accent;
-      text-decoration: none;
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
 
-      &:hover {
-        text-decoration: underline;
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+
+      .social-link {
+        color: $text-color;
+        font-size: 1.8rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $primary-color;
+        }
       }
     }
   }
 
   .footer-nav {
-    display: flex;
-    gap: 1rem;
+    flex: 1;
+    min-width: 200px;
 
-    .footer-nav-item {
-      color: $color-background;
-      text-decoration: none;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
-      &:hover {
-        color: $color-accent;
+      li {
+        margin-bottom: 0.75rem;
+
+        .footer-nav-item {
+          color: $text-color;
+          text-decoration: none;
+          font-size: 1.1rem;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
       }
     }
   }
 }
 
 // Responsive adjustments for smaller screens
-@media (max-width: 600px) {
-  .site-footer .wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
+@media (max-width: 768px) {
+  .site-footer {
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-  .site-footer .footer-nav {
-    justify-content: center;
-    padding-top: 1rem;
+    .footer-content,
+    .footer-nav {
+      min-width: unset;
+    }
+
+    .footer-nav {
+      margin-top: 2rem;
+    }
   }
 }

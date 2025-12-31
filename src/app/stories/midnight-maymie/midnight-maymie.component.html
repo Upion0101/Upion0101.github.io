@@ -1,0 +1,39 @@
+<!-- midnight-maymie.component.html -->
+<div class="midnight-container" [ngClass]="'scene-' + scene">
+
+  <div class="scene" *ngIf="scene === 1">
+    <p class="narration">Sometimes, I sit at the door and wait. The house is quiet, and I miss her. A little part of me feels sad until I hear the keys jingle.</p>
+    <img src="assets/story/midnight/bob-sad.png" alt="Sad Bob waiting" class="fade-in" />
+  </div>
+
+  <div class="scene" *ngIf="scene === 2">
+    <p class="narration">Then I hear her car pull up. My ears twitch, and I run to check the door — IT'S MOM!</p>
+    <img src="assets/story/midnight/bob-door.jpg" alt="Bob waiting by the door" class="fade-in" />
+  </div>
+
+  <div class="scene" *ngIf="scene === 3">
+    <p class="narration">But if she takes too long to get in bed, I get a little dramatic. I give her the look.</p>
+    <img src="assets/story/midnight/bob-mad.png" alt="Sassy Bob" class="fade-in tail-flick" />
+  </div>
+
+  <div class="scene" *ngIf="scene === 4">
+    <p class="narration">I quietly stalk her ankles, my paws silent on the floor.</p>
+    <img src="assets/story/midnight/bob-stalk.png" alt="Bob stalking ankles" class="fade-in" />
+  </div>
+
+  <div class="scene" *ngIf="scene === 5">
+    <p class="narration">And then — CHOMP! I give her an ankle bite to remind her it's bedtime.</p>
+    <img src="assets/story/midnight/bob-afterbite.png" alt="After biting ankles" class="fade-in" />
+  </div>
+
+  <div class="scene" *ngIf="scene === 6">
+    <p class="narration">Finally, she gets it. She climbs into bed, and I do too, curling up close like I always do.</p>
+    <img src="assets/story/midnight/bob-cuddle.jpg" alt="Cuddling Bob" class="fade-in slow-breathe" />
+  </div>
+
+  <div class="scene" *ngIf="scene === 7">
+    <p class="narration">Because at the end of the day, all I really wanted... was to cuddle.</p>
+    <img src="assets/story/midnight/bob-snuggle.jpg" alt="Extra Snuggle Bob" class="fade-in slow-breathe" />
+  </div>
+
+</div>

@@ -1,0 +1,83 @@
+@import 'src/styles.scss';
+
+/* Base styles */
+.about-bob h1 {
+  font-family: $font-family-base;
+  color: $primary-color;
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 2rem 0;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem 1.5rem;
+  background-color: $background-color;
+  color: $text-color;
+  text-align: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  /* Animation on scroll */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Image styling */
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* Text styling */
+  .about-text {
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: $font-family-base;
+  }
+}
+
+/* Add a scroll-triggered reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .about-section {
+    opacity: 0;
+    transform: translateY(20px);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem 1rem;
+    text-align: center;
+
+    .about-image {
+      max-width: 250px;
+    }
+  }
+
+  .about-bob h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,26 @@
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .faq-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  
+    .question {
+      cursor: pointer;
+      h3 {
+        margin: 0;
+      }
+    }
+  
+    .answer {
+      margin-top: 10px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+  

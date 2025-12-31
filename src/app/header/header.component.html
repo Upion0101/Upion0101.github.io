@@ -1,24 +1,79 @@
 <header class="site-header" role="banner">
   <div class="wrapper">
-    <a class="site-title" rel="author" href="/">Bob the Cat</a>
-    <nav class="site-nav">
-      <!-- Hamburger Menu Checkbox -->
-      <input type="checkbox" id="nav-trigger" class="nav-trigger" aria-label="Menu Toggle" />
-      <!-- Hamburger Icon -->
-      <label for="nav-trigger" class="menu-icon-label">
-        <span class="menu-icon"></span>
-      </label>
-      <!-- Menu Items -->
-      <div class="trigger">
-        <ul class="navigation-menu">
-          <li><a routerLink="/" class="menu-item">Home</a></li>
-          <li><a routerLink="/about" class="menu-item">About Bob</a></li>
-          <li><a routerLink="/gallery" class="menu-item">Gallery</a></li>
-          <li><a routerLink="/bob-life" class="menu-item">A Day in Bob's Life</a></li>
-          <li><a routerLink="/name-tree" class="menu-item">Bob's Names</a></li>
-          <li><a routerLink="/anthem" class="menu-item">Bob's Anthem</a></li>
+    <!-- Site Title -->
+    <a class="site-title" routerLink="/" rel="author">Bob the Cat</a>
+
+    <!-- Primary Nav (desktop) + Hamburger (mobile, right-aligned) -->
+    <nav class="site-nav" aria-label="Main">
+      <!-- Desktop Bar -->
+      <div class="nav-bar">
+        <!-- Left: main links -->
+        <ul class="nav-list" id="primary-menu" [attr.aria-hidden]="false">
+          <li class="nav-item">
+            <a routerLink="/"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }"
+               class="menu-item">Home</a>
+          </li>
+          <li class="nav-item"><a routerLink="/about" routerLinkActive="active" class="menu-item">About Bob</a></li>
+          <li class="nav-item"><a routerLink="/gallery" routerLinkActive="active" class="menu-item">Gallery</a></li>
+          <li class="nav-item"><a routerLink="/bob-life" routerLinkActive="active" class="menu-item">A Day in Bob's Life</a></li>
+          <li class="nav-item"><a routerLink="/name-tree" routerLinkActive="active" class="menu-item">Bob's Names</a></li>
+          <li class="nav-item"><a routerLink="/quiz" routerLinkActive="active" class="menu-item">Bob Quiz</a></li>
+          <li class="nav-item"><a routerLink="/anthem" routerLinkActive="active" class="menu-item">Bob's Anthem</a></li>
+          <li class="nav-item"><a routerLink="/faq" routerLinkActive="active" class="menu-item">FAQ</a></li>
+          <li class="nav-item"><a routerLink="/blog" routerLinkActive="active" class="menu-item">Blog</a></li>
+          <li class="nav-item"><a routerLink="/secret-blog" routerLinkActive="active" class="menu-item">Secret Momma Page</a></li>
+          <li class="nav-item"><a routerLink="/stories" routerLinkActive="active" class="menu-item">Stories</a></li>
+        </ul>
+
+        <!-- Right: auth links (desktop) -->
+        <ul class="auth-list">
+          <li *ngIf="!(isLoggedIn | async)">
+            <a routerLink="/login" routerLinkActive="active" class="menu-item">Login/Sign up</a>
+          </li>
+          <ng-container *ngIf="isLoggedIn | async">
+            <li><a routerLink="/profile" routerLinkActive="active" class="menu-item">Account</a></li>
+            <li><a class="menu-item" (click)="logout()">Logout</a></li>
+          </ng-container>
         </ul>
       </div>
+
+      <!-- Mobile Hamburger (right aligned) -->
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        [class.active]="menuOpen"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="primary-menu"
+        aria-label="Toggle menu"
+      >
+        <span class="hamburger"></span>
+      </button>
+
+      <!-- Mobile slide-down -->
+      <ul class="mobile-menu" [class.active]="menuOpen" (click)="onMobileMenuClick($event)">
+        <li><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" class="menu-item" (click)="closeMenu()">About Bob</a></li>
+        <li><a routerLink="/gallery" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Gallery</a></li>
+        <li><a routerLink="/bob-life" routerLinkActive="active" class="menu-item" (click)="closeMenu()">A Day in Bob's Life</a></li>
+        <li><a routerLink="/name-tree" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bob's Names</a></li>
+        <li><a routerLink="/quiz" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bob Quiz</a></li>
+        <li><a routerLink="/anthem" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bob's Anthem</a></li>
+        <li><a routerLink="/faq" routerLinkActive="active" class="menu-item" (click)="closeMenu()">FAQ</a></li>
+        <li><a routerLink="/blog" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Blog</a></li>
+        <li><a routerLink="/secret-blog" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Secret Momma Page</a></li>
+        <li><a routerLink="/stories" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Stories</a></li>
+        <li class="divider"></li>
+        <li *ngIf="!(isLoggedIn | async)">
+          <a routerLink="/login" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Login/Sign up</a>
+        </li>
+        <ng-container *ngIf="isLoggedIn | async">
+          <li><a routerLink="/profile" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Account</a></li>
+          <li><a class="menu-item" (click)="logout()">Logout</a></li>
+        </ng-container>
+      </ul>
     </nav>
   </div>
 </header>

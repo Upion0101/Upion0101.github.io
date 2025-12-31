@@ -21,7 +21,7 @@ export class NameTreeComponent {
       {
         name: "Bob",
         isOpen: false,
-        children: ["Bob", "Bobby", "Bobby girl", "Bobs", "Bob-ob", "Bobsicle", "Bob Popsicle", "Bobatha", "Bob Bibby", "Bob house"]
+        children: ["Bob", "Bobby", "Bobby girl", "Bobs", "Bob-ob", "Bobsicle", "Bob Popsicle", "Bobatha", "Bob Bibby", "Bob house", "Bob Professor Kimby"]
       },
       {
         name: "Buba",

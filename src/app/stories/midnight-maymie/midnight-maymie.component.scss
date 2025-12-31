@@ -1,0 +1,97 @@
+.midnight-container {
+  background-color: #0a0a1f;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comic Neue', cursive;
+  overflow: hidden;
+  transition: background-color 2s ease;
+  position: relative;
+  padding: 2rem;
+
+  .scene {
+    text-align: center;
+    animation: fadeIn 2s ease;
+    z-index: 2;
+  }
+
+  .narration {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    font-size: 1.4rem;
+    backdrop-filter: blur(3px);
+    display: inline-block;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -22px;
+      left: 40px;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      box-shadow:
+        12px 12px 0 0 rgba(255, 255, 255, 0.18),
+        24px 24px 0 0 rgba(255, 255, 255, 0.12);
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    object-fit: contain;
+  }
+
+  .fade-in {
+    opacity: 1;
+    animation: fadeInImage 2s ease forwards;
+  }
+
+  .tail-flick {
+    animation: tailFlick 3s infinite alternate;
+  }
+
+  .slow-breathe {
+    animation: slowBreathe 5s infinite alternate;
+  }
+
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInImage {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes tailFlick {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(2deg); }
+    100% { transform: rotate(-2deg); }
+  }
+
+  @keyframes slowBreathe {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes sparkleFloat {
+    0% { transform: translateY(0) scale(1); opacity: 0.6; }
+    100% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+  }
+}

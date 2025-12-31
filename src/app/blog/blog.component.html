@@ -1,0 +1,64 @@
+<div class="blog-container">
+  <h2>Welcome to the Blob</h2>
+
+  <!-- Post Creator -->
+  <div class="post-creator">
+    <div class="user-info">
+      <img *ngIf="userPhotoURL" [src]="userPhotoURL" alt="User Profile" class="profile-pic">
+      <span *ngIf="userName">{{ userName }}</span>
+    </div>
+    <textarea [(ngModel)]="newPost" placeholder="Write your thoughts here..."></textarea>
+    <button (click)="addPost()" [disabled]="!newPost.trim()">Post</button>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="posts.length === 0 && !isLoading" class="empty-state">
+    <p>No posts yet! Be the first to share a thought about Bob.</p>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <p>Loading posts...</p>
+  </div>
+
+  <!-- Post List -->
+  <div *ngFor="let post of posts" class="post-card" @fadeSlideIn>
+    <div class="post-header">
+      <img *ngIf="post.photoURL" [src]="post.photoURL" alt="User Profile" class="profile-pic">
+      <span class="post-author">{{ post.displayName || 'Anonymous' }}</span>
+      <span class="post-date">{{ convertTimestampToDate(post.timestamp) | date: 'medium' }}</span>
+    </div>
+    <p class="post-content">{{ post.content }}</p>
+
+    <!-- Post Actions -->
+    <div class="post-actions">
+      <button (click)="toggleLike(post.id)">
+        {{ post.likes && userId && post.likes[userId] ? '💔 Unlike' : '❤️ Like' }}
+      </button>
+      <span>
+        {{ post.likes ? getObjectKeys(post.likes).length : 0 }}
+        {{ (post.likes && getObjectKeys(post.likes).length === 1) ? 'Like' : 'Likes' }}
+      </span>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="comments-section">
+      <button (click)="loadComments(post.id)">View Comments</button>
+      <div *ngIf="post.comments">
+        <div *ngFor="let comment of post.comments" class="comment">
+          <p><strong>{{ comment.displayName || 'Anonymous' }}</strong>: {{ comment.content }}</p>
+        </div>
+      </div>
+      <input [(ngModel)]="newComment[post.id || '']" placeholder="Write a comment...">
+      <button (click)="addComment(post.id)" [disabled]="!(newComment[post.id || '']?.trim())">Comment</button>
+    </div>
+
+    <!-- Delete Post -->
+    <button (click)="deletePost(post.id)">Delete</button>
+  </div>
+
+  <!-- Load More Button -->
+  <div *ngIf="!isLoading && posts.length > 0" class="load-more">
+    <button (click)="loadPosts()">Load More</button>
+  </div>
+</div>

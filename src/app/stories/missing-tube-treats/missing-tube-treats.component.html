@@ -1,0 +1,106 @@
+<div class="story-container" #storyContainer>
+  <h1 class="story-title">The Mystery of the Missing Tube Treats</h1>
+
+  <div class="clue-tracker">
+    <span [class.found]="unlockedClues.has(1)">①</span>
+    <span [class.found]="unlockedClues.has(2)">②</span>
+    <span [class.found]="unlockedClues.has(3)">③</span>
+    <span [class.found]="unlockedClues.has(4)">④</span>
+    <span [class.found]="unlockedClues.has(5)">⑤</span>
+  </div>
+
+  <div class="polaroid">
+    <img src="assets/story/story2.png" alt="Bob Investigates" />
+  </div>
+
+  <p class="clue-hint">🔎 Tap or click on each clue below to investigate!</p>
+
+  <div class="progress-bar-wrapper">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="clueProgressPercent"></div>
+    </div>
+    <p class="progress-label">{{ clueProgressPercent }}% solved</p>
+  </div>
+
+  <p class="clue" (click)="showClue(1)">🍽 A half-eaten tube treat sits on the dining room table.</p>
+  <div class="clue-popup" *ngIf="activeClue === 1">
+    <p>Whoever did this couldn’t finish the job...</p>
+  </div>
+
+  <p class="clue" (click)="showClue(2)">😮‍💨 Bob's breath smells like tuna.</p>
+  <div class="clue-popup" *ngIf="activeClue === 2">
+    <p>Her stinky breath smells suspiciously like her tube treats...</p>
+  </div>
+
+  <p class="clue" (click)="showClue(3)">📦 The tube treat box is mysteriously empty.</p>
+  <div class="clue-popup" *ngIf="activeClue === 3">
+    <p>Someone’s cleaned house… and by house, we mean snack stash.</p>
+  </div>
+
+  <p class="clue" (click)="showClue(4)">🥣 Bob didn’t eat her regular food this morning.</p>
+  <div class="clue-popup" *ngIf="activeClue === 4">
+    <p>Maybe she was already full... or she had eaten already.</p>
+  </div>
+
+  <p class="clue" (click)="showClue(5)">🛋 A sticky paw-shaped stain is on the couch cushion.</p>
+  <div class="clue-popup" *ngIf="activeClue === 5">
+    <p>The shape is distinct... and very Bob-shaped.</p>
+  </div>
+
+  <!-- QUIZ: appears once all clues unlocked -->
+  <div *ngIf="showQuiz && answerCorrect !== true" class="quiz-section">
+    <h3>Who ate all the tube treats?</h3>
+    <form>
+      <label>
+        <input
+          type="radio"
+          name="suspect"
+          [(ngModel)]="selectedAnswer"
+          value="Bob"
+        />
+        Bob
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="suspect"
+          [(ngModel)]="selectedAnswer"
+          value="Adoba"
+        />
+        Adoba
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="suspect"
+          [(ngModel)]="selectedAnswer"
+          value="Simba"
+        />
+        Simba
+      </label>
+      <button
+        type="button"
+        (click)="submitAnswer()"
+        [disabled]="!selectedAnswer"
+      >
+        Submit
+      </button>
+    </form>
+    <div class="wrong-answer" *ngIf="answerCorrect === false">
+      ❌ Nope, try again!
+    </div>
+  </div>
+
+  <!-- FINAL REWARD: only if correct -->
+  <div *ngIf="showFinalReveal" class="final-reveal">
+    <h2>🎉 Case Solved!</h2>
+    <p>Bob was the sneaky snacker all along!</p>
+    <img src="assets/icons/treat.png" class="treat-reveal" />
+  </div>
+
+  <div class="signature">Thanks for the help detective! 🕵️‍♀️🐾</div>
+
+  <div class="paw-trail">
+    <img *ngFor="let paw of pawprints" src="assets/icons/paw.png" class="paw" />
+  </div>
+</div>

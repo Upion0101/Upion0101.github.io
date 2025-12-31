@@ -1,0 +1,45 @@
+<div class="profile-wrapper">
+  <div class="profile-container">
+    <h2>Your Profile</h2>
+
+    <!-- Profile Details -->
+    <div *ngIf="user | async as userData">
+      <div class="profile-picture">
+        <img *ngIf="photoURL; else defaultPhoto" [src]="photoURL" class="profile-image" alt="Profile Photo" />
+        <ng-template #defaultPhoto>
+          <img src="assets/default-profile.png" class="profile-image" alt="Default Profile Photo" />
+        </ng-template>
+      </div>
+
+      <p><strong>Email:</strong> {{ userData.email }}</p>
+      <p><strong>Name:</strong> {{ userData.displayName || 'No Name Provided' }}</p>
+    </div>
+
+    <!-- Profile Update Form -->
+    <form (ngSubmit)="updateProfile()">
+      <label for="displayName">Update Display Name</label>
+      <input
+        type="text"
+        id="displayName"
+        [(ngModel)]="displayName"
+        name="displayName"
+        placeholder="Enter new display name"
+      />
+
+      <label for="photoUpload">Upload Profile Picture</label>
+      <div class="custom-file-upload">
+        <input #photoUpload type="file" id="photoUpload" (change)="onFileSelected($event)" accept="image/*" style="display:none;" />
+        <button type="button" class="choose-file-btn" (click)="photoUpload.click()">Choose File</button>
+        <span *ngIf="selectedFileName">{{ selectedFileName }}</span>
+      </div>
+
+      <button type="submit">Update Profile</button>
+      
+      <!-- Upload Progress -->
+      <div class="upload-progress" *ngIf="uploadPercent !== null">
+        <progress [value]="uploadPercent" max="100"></progress>
+        <span>{{ uploadPercent | number: '1.0-0' }}%</span>
+      </div>
+    </form>
+  </div>
+</div>

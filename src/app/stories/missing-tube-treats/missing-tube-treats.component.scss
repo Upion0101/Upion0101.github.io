@@ -1,0 +1,248 @@
+@import 'src/styles.scss';
+
+.story-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  font-family: $font-family-base;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    lighten($background-color, 2%),
+    $background-color
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: $text-color;
+  cursor: url('/assets/icons/magnifying-glass.png'), auto;
+
+  .story-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+    text-shadow: 1px 1px 2px lighten($primary-color, 35%);
+  }
+
+  .clue-tracker {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+
+    span {
+      margin: 0 0.3rem;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+
+      &.found {
+        opacity: 1;
+        transform: scale(1.2);
+        color: $primary-color;
+        text-shadow: 0 0 6px $primary-color;
+      }
+    }
+  }
+
+  .clue {
+    font-size: 1.2rem;
+    margin: 1.2rem 0;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: $text-color;
+
+    &:hover {
+      color: $button-text-color;
+      background-color: $primary-color;
+      box-shadow: 0 0 10px $primary-color;
+      transform: scale(1.03);
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  .clue-hint {
+    font-size: 1rem;
+    font-style: italic;
+    color: $secondary-color;
+    margin: 2rem 0 1rem;
+    text-align: center;
+  }
+
+  .clue-popup {
+    background: lighten($primary-color, 45%);
+    padding: 1rem 1.5rem;
+    margin-top: 0.5rem;
+    border-left: 5px solid $primary-color;
+    box-shadow: 0 0 10px $box-shadow-color;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: $text-color;
+  }
+
+  .progress-bar-wrapper {
+    margin: 2rem auto;
+    max-width: 400px;
+
+    .progress-bar {
+      height: 16px;
+      background: $border-color;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 2px $box-shadow-color;
+
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: $primary-color;
+        transition: width 0.4s ease;
+      }
+    }
+
+    .progress-label {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: $secondary-color;
+    }
+  }
+
+  .final-reveal {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: lighten($primary-color, 42%);
+    border: 2px dashed $primary-color;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: $secondary-color;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+    }
+
+    .treat-reveal {
+      width: 80px;
+      margin-top: 1rem;
+      animation: bounce 1s ease infinite alternate;
+    }
+  }
+
+  .signature {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: $primary-color;
+    margin-top: 3rem;
+    text-align: right;
+  }
+
+  .paw-trail {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+
+    .paw {
+      width: 40px;
+      margin: 0.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: pulse 2s ease-in-out infinite;
+    }
+  }
+
+  .polaroid {
+    background: white;
+    padding: 1rem;
+    border: 1px solid $border-color;
+    box-shadow: 2px 2px 10px $box-shadow-color;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    img {
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+.case-solved {
+  background: linear-gradient(135deg, #fff1f2, #fef9c3);
+  transition: background 1s ease;
+}
+
+/* QUIZ SECTION */
+.quiz-section {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 400px;
+  background: lighten($background-color, 10%);
+  border: 2px solid $primary-color;
+  border-radius: 0.5rem;
+  text-align: left;
+
+  h3 {
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  button {
+    margin-top: 1rem;
+  }
+
+  .wrong-answer {
+    margin-top: 0.75rem;
+    color: #d9534f;
+    font-weight: bold;
+  }
+}

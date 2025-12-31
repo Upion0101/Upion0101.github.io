@@ -1,0 +1,45 @@
+<div class="quiz-container">
+    <h1>Test Your Knowledge of Bob 🐱</h1>
+  
+    <!-- Quiz Questions -->
+    <div *ngFor="let question of questions; let i = index" class="question-block">
+      <p>{{ i + 1 }}. {{ question.question }}</p>
+      <div *ngFor="let answer of question.answers" class="answer-option">
+        <input
+          type="radio"
+          [name]="'question' + i"
+          [value]="answer"
+          [(ngModel)]="userAnswers[i]"
+        />
+        <label>{{ answer }}</label>
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <button (click)="submitQuiz()">Submit Answers</button>
+  
+    <!-- Results Section -->
+    <div *ngIf="quizSubmitted" class="results">
+        <h2>Your Score: {{ score }}/{{ questions.length }}</h2>
+      
+        <!-- Perfect Score Message -->
+        <p *ngIf="score === questions.length">Perfect! You know Bob very well!</p>
+      
+        <!-- Near Perfect Score Message (8/9) -->
+        <p *ngIf="score === questions.length - 1">So close! You're almost a Bob expert!</p>
+      
+        <!-- Mid-Range Score Message (5-7) -->
+        <p *ngIf="score >= 5 && score < questions.length - 1">
+            Keep it up! You're on your way to becoming a Bob expert.
+        </p>
+      
+        <!-- Low Score Message (1-4) -->
+        <p *ngIf="score > 0 && score < 5">
+            Not bad! You know some things about Bob, but there's more to learn.
+        </p>
+      
+        <!-- Zero Score Message -->
+        <p *ngIf="score === 0">You've got some Bobology to catch up on!</p>
+      </div>
+  </div>
+  
