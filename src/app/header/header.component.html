@@ -10,15 +10,23 @@
         <!-- Left: main links -->
         <ul class="nav-list" id="primary-menu" [attr.aria-hidden]="false">
           <li class="nav-item">
-            <a routerLink="/"
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{ exact: true }"
-               class="menu-item">Home</a>
+            <a
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="menu-item"
+              >Home</a
+            >
           </li>
+
           <li class="nav-item"><a routerLink="/about" routerLinkActive="active" class="menu-item">About Bob</a></li>
           <li class="nav-item"><a routerLink="/gallery" routerLinkActive="active" class="menu-item">Gallery</a></li>
           <li class="nav-item"><a routerLink="/bob-life" routerLinkActive="active" class="menu-item">A Day in Bob's Life</a></li>
           <li class="nav-item"><a routerLink="/name-tree" routerLinkActive="active" class="menu-item">Bob's Names</a></li>
+
+          <!-- ✅ NEW: Bobdle -->
+          <li class="nav-item"><a routerLink="/bobdle" routerLinkActive="active" class="menu-item">Bobdle</a></li>
+
           <li class="nav-item"><a routerLink="/quiz" routerLinkActive="active" class="menu-item">Bob Quiz</a></li>
           <li class="nav-item"><a routerLink="/anthem" routerLinkActive="active" class="menu-item">Bob's Anthem</a></li>
           <li class="nav-item"><a routerLink="/faq" routerLinkActive="active" class="menu-item">FAQ</a></li>
@@ -46,26 +54,37 @@
         (click)="toggleMenu()"
         [class.active]="menuOpen"
         [attr.aria-expanded]="menuOpen"
-        aria-controls="primary-menu"
+        aria-controls="mobile-menu"
         aria-label="Toggle menu"
       >
         <span class="hamburger"></span>
       </button>
 
       <!-- Mobile slide-down -->
-      <ul class="mobile-menu" [class.active]="menuOpen" (click)="onMobileMenuClick($event)">
+      <ul
+        id="mobile-menu"
+        class="mobile-menu"
+        [class.active]="menuOpen"
+        (click)="onMobileMenuClick($event)"
+      >
         <li><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Home</a></li>
         <li><a routerLink="/about" routerLinkActive="active" class="menu-item" (click)="closeMenu()">About Bob</a></li>
         <li><a routerLink="/gallery" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Gallery</a></li>
         <li><a routerLink="/bob-life" routerLinkActive="active" class="menu-item" (click)="closeMenu()">A Day in Bob's Life</a></li>
         <li><a routerLink="/name-tree" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bob's Names</a></li>
+
+        <!-- ✅ NEW: Bobdle -->
+        <li><a routerLink="/bobdle" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bobdle</a></li>
+
         <li><a routerLink="/quiz" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bob Quiz</a></li>
         <li><a routerLink="/anthem" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Bob's Anthem</a></li>
         <li><a routerLink="/faq" routerLinkActive="active" class="menu-item" (click)="closeMenu()">FAQ</a></li>
         <li><a routerLink="/blog" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Blog</a></li>
         <li><a routerLink="/secret-blog" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Secret Momma Page</a></li>
         <li><a routerLink="/stories" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Stories</a></li>
+
         <li class="divider"></li>
+
         <li *ngIf="!(isLoggedIn | async)">
           <a routerLink="/login" routerLinkActive="active" class="menu-item" (click)="closeMenu()">Login/Sign up</a>
         </li>

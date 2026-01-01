@@ -1,4 +1,15 @@
 // src/styles.scss
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* Define color variables here for global usage */
 $primary-color: #eb94bd; // Coral color (main accent color)

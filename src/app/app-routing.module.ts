@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, // This is the default route for the home page
+  { path: '', component: HomeComponent }, // default landing page
+
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'gallery', component: GalleryComponent },
@@ -27,13 +29,27 @@ const routes: Routes = [
   { path: 'secret-blog', component: SecretBlogComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'stories', loadChildren: () => import('./stories/stories.module').then(m => m.StoriesModule) },
-  { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
+
+  // ✅ Bobdle (standalone component)
+  {
+    path: 'bobdle',
+    loadComponent: () =>
+      import('./pages/bobdle/bobdle.component').then(m => m.BobdleComponent),
+  },
+
+  // Lazy-loaded stories
+  {
+    path: 'stories',
+    loadChildren: () =>
+      import('./stories/stories.module').then(m => m.StoriesModule),
+  },
+
+  // 404
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

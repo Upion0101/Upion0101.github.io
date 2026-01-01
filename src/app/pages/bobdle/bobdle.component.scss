@@ -1,0 +1,260 @@
+/* Bobdle — responsive + no horizontal scroll + nicer UI */
+
+:host {
+  display: block;
+}
+
+/* Prevent any accidental horizontal overflow inside the component */
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px 14px 34px;
+  overflow-x: clip; /* modern */
+}
+
+/* If some browser ignores overflow-x: clip, this still helps */
+@supports not (overflow-x: clip) {
+  .page {
+    overflow-x: hidden;
+  }
+}
+
+/* ---------- Top bar ---------- */
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.title .h1 {
+  font-size: 24px;
+  font-weight: 950;
+  letter-spacing: 0.2px;
+}
+
+.title .sub {
+  margin-top: 2px;
+  opacity: 0.78;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.22);
+  color: inherit;
+  padding: 9px 12px;
+  border-radius: 14px;
+  font-weight: 850;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.btn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------- Status ---------- */
+.status {
+  margin: 10px auto 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.18);
+  max-width: 720px;
+  backdrop-filter: blur(8px);
+}
+
+.status.win {
+  border-color: rgba(70, 255, 140, 0.28);
+}
+
+.status.lose {
+  border-color: rgba(255, 176, 0, 0.26);
+}
+
+/* ---------- Board (fluid tile sizing) ---------- */
+.board {
+  /* Tile sizing: grows on desktop, shrinks on small screens */
+  --gap: 8px;
+  --tile: clamp(42px, 10vw, 56px);
+
+  display: grid;
+  gap: var(--gap);
+  justify-content: center;
+  margin: 16px 0 18px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--tile));
+  gap: var(--gap);
+}
+
+.cell {
+  width: var(--tile);
+  height: var(--tile);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.16);
+  user-select: none;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.ch {
+  font-weight: 950;
+  font-size: clamp(18px, 4.4vw, 22px);
+  letter-spacing: 1px;
+}
+
+.cell.empty {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.cell.absent {
+  border-color: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0.92;
+}
+
+.cell.present {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 176, 0, 0.18);
+}
+
+.cell.correct {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(70, 255, 140, 0.16);
+}
+
+/* ---------- Keyboard (no horizontal scroll) ---------- */
+.keyboard {
+  --gap: 8px;
+  max-width: 680px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+/* Make rows fit viewport, keys shrink instead of pushing width */
+.kb-row {
+  width: 100%;
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Spacer still allowed, but should not cause overflow */
+.spacer {
+  flex: 0 0 8px;
+}
+
+/* Keys flex to fit the row width */
+.key {
+  flex: 1 1 0;
+  min-width: 0; /* critical: lets them shrink */
+  height: 44px;
+  padding: 0 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.16);
+  color: inherit;
+  font-weight: 950;
+  cursor: pointer;
+  user-select: none;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 90ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.key:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.key:active {
+  transform: translateY(1px);
+}
+
+/* Wide keys should take more space but still fit */
+.key.wide {
+  flex: 1.6 1 0;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+
+/* Keyboard states */
+.key.absent {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.10);
+  opacity: 0.92;
+}
+
+.key.present {
+  background: rgba(255, 176, 0, 0.18);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.key.correct {
+  background: rgba(70, 255, 140, 0.16);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.hint {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.75;
+  text-align: center;
+  max-width: 680px;
+}
+
+/* ---------- Mobile tweaks ---------- */
+@media (max-width: 420px) {
+  .top {
+    align-items: flex-start;
+  }
+
+  .title .h1 {
+    font-size: 22px;
+  }
+
+  .btn {
+    padding: 8px 10px;
+  }
+
+  .keyboard {
+    max-width: 100%;
+  }
+
+  .key {
+    height: 42px;
+    border-radius: 13px;
+  }
+
+  .cell {
+    border-radius: 14px;
+  }
+}

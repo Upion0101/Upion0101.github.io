@@ -1,0 +1,53 @@
+<div class="page">
+  <div class="top">
+    <div class="title">
+      <div class="h1">Bobdle</div>
+      <div class="sub">Wordle, but only Bob names 😼</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn ghost" (click)="newGame()">New</button>
+      <button class="btn ghost" (click)="revealAnswer()" [disabled]="!targetUpper">Reveal</button>
+    </div>
+  </div>
+
+  <div class="status" [class.win]="isWin" [class.lose]="isLose" *ngIf="message">
+    {{ message }}
+  </div>
+
+  <div class="board" [style.--cols]="cols">
+    <div class="row" *ngFor="let _ of guesses; let r = index">
+      <div class="cell" *ngFor="let __ of tiles[r]; let c = index" [class]="cellClass(r, c)">
+        <span class="ch">{{ getCellChar(r, c) }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="keyboard">
+    <div class="kb-row">
+      <button class="key" *ngFor="let ch of kbRows[0].split('')" [class]="keyClass(ch)" (click)="onKeyClick(ch)">
+        {{ ch }}
+      </button>
+    </div>
+
+    <div class="kb-row">
+      <div class="spacer"></div>
+      <button class="key" *ngFor="let ch of kbRows[1].split('')" [class]="keyClass(ch)" (click)="onKeyClick(ch)">
+        {{ ch }}
+      </button>
+      <div class="spacer"></div>
+    </div>
+
+    <div class="kb-row">
+      <button class="key wide" (click)="onKeyClick('ENTER')">Enter</button>
+      <button class="key" *ngFor="let ch of kbRows[2].split('')" [class]="keyClass(ch)" (click)="onKeyClick(ch)">
+        {{ ch }}
+      </button>
+      <button class="key wide" (click)="onKeyClick('⌫')">⌫</button>
+    </div>
+
+    <div class="hint">
+      <span><b>Rules:</b> word length matches the chosen name. Letters only.</span>
+    </div>
+  </div>
+</div>
